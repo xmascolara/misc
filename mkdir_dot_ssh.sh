@@ -6,9 +6,10 @@ for i in $(ls /home/); do
 if [ ! -d /home/$i/.ssh ]; then
  cd /home/$i
  mkdir .ssh
+ chmod 0700 .ssh
  touch .ssh/authorized_keys
+ chmod 0600 .ssh/authorized_keys
  chown -R --reference=.bashrc .ssh
- chmod -R 0600 .ssh
  cd
 fi; done;
 
